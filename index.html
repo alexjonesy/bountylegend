@@ -46,6 +46,14 @@
     .auth-links{text-align:center;font-size:12px;color:#8c8293;margin:16px 0 0}.link-btn{background:none;border:0;padding:0;color:#ff75ba;text-decoration:underline;text-underline-offset:3px;font-size:12px}
     :focus-visible{outline:2px solid var(--pink);outline-offset:3px}
     @media(max-width:640px){.nav{gap:14px}.nav-login{font-size:10px;letter-spacing:1.2px}}
+    /* V8 - mobile form hardening (iOS Safari date input, zoom-on-focus, native dialog overflow) */
+    dialog{overflow-x:hidden}.dialog-content{overflow-x:hidden;overflow-wrap:anywhere}
+    .form-grid,.signup-stats{grid-template-columns:repeat(var(--cols,2),minmax(0,1fr))}.signup-stats{--cols:3}
+    .field,.field input,.field select{min-width:0;max-width:100%}
+    .field input[type=date]{-webkit-appearance:none;appearance:none;width:100%;height:47px;line-height:1.2;display:block}
+    .field input[type=date]::-webkit-date-and-time-value{text-align:left;min-height:1.2em;margin:0}
+    .field input[type=date]::-webkit-calendar-picker-indicator{opacity:.7;cursor:pointer;filter:invert(1)}
+    @media(max-width:640px){.form-grid{--cols:1}.field input,.field select{font-size:16px}.signup-stat span{font-size:8.5px}}
     @media(max-width:520px){.nav a.dash{display:none}}
     @media(max-width:380px){.brand{gap:8px}.brand-mark{width:28px;height:28px}.brand-name{font-size:18px}.nav{gap:10px}.topbar .btn{padding:0 11px}.topbar .btn span{display:none}}
     /* V7 - header sits above the banner; banner shown in full */
